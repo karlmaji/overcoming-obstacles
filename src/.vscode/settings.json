@@ -1,0 +1,16 @@
+{
+    "python.autoComplete.extraPaths": [
+        "/home/yl-01/mh_code/overcoming-obstacles/devel/lib/python3/dist-packages",
+        "/home/yl-01/mh_code/ros1/devel/lib/python3/dist-packages",
+        "/opt/ros/noetic/lib/python3/dist-packages",
+        "/home/carla/PythonAPI/carla/dist/carla-carla_version_and_arch.egg",
+        "/home/carla/PythonAPI/carla"
+    ],
+    "python.analysis.extraPaths": [
+        "/home/yl-01/mh_code/overcoming-obstacles/devel/lib/python3/dist-packages",
+        "/home/yl-01/mh_code/ros1/devel/lib/python3/dist-packages",
+        "/opt/ros/noetic/lib/python3/dist-packages",
+        "/home/carla/PythonAPI/carla/dist/carla-carla_version_and_arch.egg",
+        "/home/carla/PythonAPI/carla"
+    ]
+}

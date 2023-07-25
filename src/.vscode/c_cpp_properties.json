@@ -1,0 +1,32 @@
+{
+  "configurations": [
+    {
+      "browse": {
+        "databaseFilename": "${default}",
+        "limitSymbolsToIncludedHeaders": false
+      },
+      "includePath": [
+        "/home/yl-01/mh_code/overcoming-obstacles/devel/include/**",
+        "/home/yl-01/mh_code/ros1/devel/include/**",
+        "/opt/ros/noetic/include/**",
+        "/home/yl-01/mh_code/ros1/src/dynaplaning/include/**",
+        "/home/yl-01/mh_code/ros1/src/leader_follower/include/**",
+        "/home/yl-01/mh_code/ros1/src/motion_capture/include/**",
+        "/home/yl-01/mh_code/ros1/src/mpc_control/include/**",
+        "/home/yl-01/mh_code/ros1/src/nav_msgs111/include/**",
+        "/home/yl-01/mh_code/overcoming-obstacles/src/ptz_serial/include/**",
+        "/home/yl-01/mh_code/ros1/src/ros_image_transport/include/**",
+        "/home/yl-01/mh_code/ros1/src/serial_stm32/include/**",
+        "/home/yl-01/mh_code/ros1/src/stplanner/include/**",
+        "/home/yl-01/mh_code/overcoming-obstacles/src/wheeltec_joy/include/**",
+        "/usr/include/**"
+      ],
+      "name": "ROS",
+      "intelliSenseMode": "gcc-x64",
+      "compilerPath": "/usr/bin/gcc",
+      "cStandard": "gnu11",
+      "cppStandard": "c++14"
+    }
+  ],
+  "version": 4
+}

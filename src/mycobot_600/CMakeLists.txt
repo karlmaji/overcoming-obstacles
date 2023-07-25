@@ -9,6 +9,8 @@ project(mycobot_600)
 ## is used, also find other catkin packages
 find_package(catkin REQUIRED COMPONENTS
   mycobot_description
+  rospy
+  sensor_msgs
 )
 
 ## System dependencies are found with CMake's conventions
@@ -162,7 +164,7 @@ include_directories(
 #   DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
 # )
 catkin_install_python(PROGRAMS
-
+        scripts/cobot_tcp.py
         scripts/slider_600.py
         DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
     ) 
