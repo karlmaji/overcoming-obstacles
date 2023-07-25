@@ -1,0 +1,28 @@
+<launch>
+	<!-- Load URDF, rviz, etc. on the parameter server,加载参数服务器上的URDF、rviz等 -->
+	<arg name="model" default="$(find mycobot_description)/urdf/600_urdf/mycobot_600_urdf.urdf"/>
+	<arg name="rvizconfig" default="$(find mycobot_600)/config/mycobot_600.rviz" />
+	<arg name="gui" default="true" />
+
+<group ns="virtual_robot">
+	<param name="robot_description" command="$(find xacro)/xacro  --inorder $(arg model) ns:=virtual_robot" />
+	<!-- Combinejoin values to TF -->
+	<node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" />
+	<!-- <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher" /> -->
+	
+
+</group>
+
+<group ns="real_robot">
+	<param name="robot_description" command="$(find xacro)/xacro --inorder $(arg model) ns:=real_robot" />
+	<!-- Combinejoin values to TF -->
+	<node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" />
+	<node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher" />
+</group>
+
+	<include file="$(find wheeltec_joy)/launch/joy_data.launch"/>
+	<node name="mycobot_control" pkg="wheeltec_joy" type ="mycobot_control.py"/>
+
+	<!-- Show in Rviz -->
+	<node name="rviz" pkg="rviz" type="rviz" args="-d $(arg rvizconfig)" required="true" />
+</launch>
