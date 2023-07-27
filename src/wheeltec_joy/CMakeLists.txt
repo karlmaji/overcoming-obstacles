@@ -127,11 +127,18 @@ add_dependencies( joycontrol  ${${PROJECT_NAME}_EXPORTED_TARGETS}${catkin_EXPORT
 
 target_link_libraries(joycontrol ${catkin_LIBRARIES})
 
-add_executable( joy_xbox_control src/control_xbox.cpp)
+add_executable( ptz_control_xbox src/ptz_control_xbox.cpp)
 
-add_dependencies( joy_xbox_control  ${${PROJECT_NAME}_EXPORTED_TARGETS}${catkin_EXPORTED_TARGETS})
+add_dependencies( ptz_control_xbox  ${${PROJECT_NAME}_EXPORTED_TARGETS}${catkin_EXPORTED_TARGETS})
 
-target_link_libraries(joy_xbox_control ${catkin_LIBRARIES})
+target_link_libraries(ptz_control_xbox ${catkin_LIBRARIES})
+
+
+add_executable( cobot_control_xbox src/cobot_control_xbox.cpp)
+
+add_dependencies( cobot_control_xbox  ${${PROJECT_NAME}_EXPORTED_TARGETS}${catkin_EXPORTED_TARGETS})
+
+target_link_libraries(cobot_control_xbox ${catkin_LIBRARIES})
 
 add_executable(joy_node src/joy_node.cpp)
 target_link_libraries(joy_node ${catkin_LIBRARIES})

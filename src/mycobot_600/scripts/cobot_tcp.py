@@ -167,7 +167,7 @@ def cmd_callback(string_data):
 if __name__ =="__main__":
     rospy.init_node("cobot_tcp",anonymous=True)
     
-    ip = rospy.get_param("~ip", "10.42.0.35")
+    ip = rospy.get_param("~ip", "192.168.0.100")
     ER = ElephantRobot(ip, 5001)
     
     # START CLIENT,启动客户端

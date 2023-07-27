@@ -1,13 +1,34 @@
 <launch>
-<arg name="control_topic" default="cmd_vel"/>
-    <!--打开手柄控制节点-->
-    <node pkg="wheeltec_joy" type="joycontrol" name="joy_control" output="screen">
+<!-- <arg name="control_topic" default="cmd_vel"/> -->
+    <!-- 打开手柄控制节点-->
+    <!-- <node pkg="wheeltec_joy" type="joycontrol" name="joy_control" output="screen">
       <remap from="cmd_vel" to="$(arg control_topic)"/>
        <param name="axis_linear"   type="int"      value="1" />
        <param name="axis_angular"  type="int"      value="0"/>
        <param name="vlinear"       type="double"   value="0.3" />
        <param name="vangular"      type="double"   value="2"/>
-    </node>
-    <!--获取手柄数据节点-->
+    </node> -->
+    <!--获取手柄数据节点 -->
    <include file="$(find wheeltec_joy)/launch/joy_data.launch" />
+
+    <node pkg="wheeltec_joy" type="ptz_control_xbox" name="ptz_control_xbox" output="screen">
+       <param name="axis_x"   type="int"      value="0" />
+       <param name="axis_y"  type="int"      value="1"/>
+       <param name="axis_fast_x"       type="int"   value="3" />
+       <param name="axis_fast_y"      type="int"   value="4"/>
+       <param name="vlinear_x"   type="double"      value="32" />
+       <param name="vlinear_y"  type="double"      value="32"/>
+       <param name="vlinear_fast_x"       type="double"   value="63" />
+       <param name="vlinear_fast_y"      type="double"   value="63"/>
+    </node>
+
+   <include file="$(find mycobot_600)/launch/mycobot_600_slider.launch" />
+
+    <node pkg="wheeltec_joy" type="cobot_control_xbox" name="cobot_control_xbox" output="screen">
+       <param name="speed"   type="double"      value="1" />
+       <param name="loop_rate"  type="int"      value="10"/>
+    </node>
+
+
+
 </launch>

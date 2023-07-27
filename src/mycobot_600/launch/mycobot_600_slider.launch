@@ -17,11 +17,11 @@
 	<param name="robot_description" command="$(find xacro)/xacro --inorder $(arg model) ns:=real_robot" />
 	<!-- Combinejoin values to TF -->
 	<node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" />
-	<node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher" />
+	<!-- <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher" /> -->
 </group>
 
-	<include file="$(find wheeltec_joy)/launch/joy_data.launch"/>
-	<node name="mycobot_control" pkg="wheeltec_joy" type ="mycobot_control.py"/>
+	<!-- <include file="$(find wheeltec_joy)/launch/joy_data.launch"/>
+	<node name="mycobot_control" pkg="wheeltec_joy" type ="mycobot_control.py"/> -->
 
 	<!-- Show in Rviz -->
 	<node name="rviz" pkg="rviz" type="rviz" args="-d $(arg rvizconfig)" required="true" />
