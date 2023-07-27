@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
+     Commit Version: 1.6.0-4-g7f85cfe  Build Version: 1.6.7995.38578
+     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+<robot
+  name="jxjg">
+  <link
+    name="base">
+    <inertial>
+      <origin
+        xyz="0.20001 -0.18 1.9838E-16"
+        rpy="0 0 0" />
+      <mass
+        value="272.3" />
+      <inertia
+        ixx="15.465"
+        ixy="-1.8188E-05"
+        ixz="-9.7582E-16"
+        iyy="35.665"
+        iyz="2.8984E-16"
+        izz="26.081" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://jxjg/meshes/base_link.STL" />
+      </geometry>
+      <material
+        name="jxjg">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://jxjg/meshes/base_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <link
+    name="link1">
+    <inertial>
+      <origin
+        xyz="-3.764E-17 -0.4 0"
+        rpy="0 0 0" />
+      <mass
+        value="187.68" />
+      <inertia
+        ixx="13.319"
+        ixy="4.9345E-31"
+        ixz="2.237E-16"
+        iyy="7.3774"
+        iyz="-2.3592E-16"
+        izz="14.078" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://jxjg/meshes/link1.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://jxjg/meshes/link1.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint1"
+    type="fixed">
+    <origin
+      xyz="0.32 0 0"
+      rpy="-1.5708 0 -1.5708" />
+    <parent
+      link="base" />
+    <child
+      link="link1" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+</robot>
