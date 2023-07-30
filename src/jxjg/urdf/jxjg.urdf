@@ -8,17 +8,17 @@
     name="base">
     <inertial>
       <origin
-        xyz="0.20001 -0.18 1.9838E-16"
+        xyz="-0.221226771842286 -2.47254481488416E-08 -0.160050676660446"
         rpy="0 0 0" />
       <mass
-        value="272.3" />
+        value="179.951906828969" />
       <inertia
-        ixx="15.465"
-        ixy="-1.8188E-05"
-        ixz="-9.7582E-16"
-        iyy="35.665"
-        iyz="2.8984E-16"
-        izz="26.081" />
+        ixx="10.7083418143252"
+        ixy="1.25305580325406E-05"
+        ixz="-0.22959933467798"
+        iyy="12.3869903996114"
+        iyz="-9.91446357375315E-07"
+        izz="20.2337787473876" />
     </inertial>
     <visual>
       <origin
@@ -29,7 +29,7 @@
           filename="package://jxjg/meshes/base_link.STL" />
       </geometry>
       <material
-        name="jxjg">
+        name="">
         <color
           rgba="1 1 1 1" />
       </material>
@@ -48,17 +48,17 @@
     name="link1">
     <inertial>
       <origin
-        xyz="-3.764E-17 -0.4 0"
+        xyz="0 0.4 4.62415461609913E-17"
         rpy="0 0 0" />
       <mass
         value="187.68" />
       <inertia
-        ixx="13.319"
-        ixy="4.9345E-31"
-        ixz="2.237E-16"
-        iyy="7.3774"
-        iyz="-2.3592E-16"
-        izz="14.078" />
+        ixx="13.319024"
+        ixy="1.80555932286303E-32"
+        ixz="1.12412301689346E-16"
+        iyy="7.377388"
+        iyz="-4.15088801419776E-33"
+        izz="14.077564" />
     </inertial>
     <visual>
       <origin
@@ -88,8 +88,8 @@
     name="joint1"
     type="fixed">
     <origin
-      xyz="0.32 0 0"
-      rpy="-1.5708 0 -1.5708" />
+      xyz="-0.32 0 0"
+      rpy="1.5708 0 0" />
     <parent
       link="base" />
     <child
