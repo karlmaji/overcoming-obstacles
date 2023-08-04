@@ -166,6 +166,7 @@ include_directories(
 catkin_install_python(PROGRAMS
         scripts/cobot_tcp.py
         scripts/slider_600.py
+        scripts/control_with_coords.py
         DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
     ) 
 ## Mark executables for installation

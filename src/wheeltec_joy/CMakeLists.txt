@@ -184,6 +184,8 @@ target_link_libraries(joy_node ${catkin_LIBRARIES})
 # in contrast to setup.py, you can choose the destination
 catkin_install_python(PROGRAMS
   scripts/mycobot_control.py
+  scripts/xyz_control.py
+  scripts/control_with_coords.py
   DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
 )
 
