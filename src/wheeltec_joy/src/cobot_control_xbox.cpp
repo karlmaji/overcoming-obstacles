@@ -2,7 +2,7 @@
 #include<sensor_msgs/JointState.h>
 #include<sensor_msgs/Joy.h>
 #include<std_msgs/String.h>
-
+#include<std_msgs/Bool.h>
 class cobot_control_xbox
 {
     public:
@@ -15,6 +15,7 @@ class cobot_control_xbox
         ros::Publisher cmd_pub;
         ros::Publisher virtual_cobot_pub;
         ros::Publisher set_cobot_pub;
+        ros::Publisher grap_control_pub;
         ros::Subscriber joy_sub;
 
         sensor_msgs::Joy joy_ago;
@@ -25,8 +26,11 @@ class cobot_control_xbox
         bool B_press;
         bool X_press;
         bool Y_press;
+        bool LT_press;
+        bool RT_press;
         bool speed_up;
         bool speed_down;
+        bool grap_control;
 
         std::vector<double> virtual_angles={0,0,0,0,0,0};
         std::vector<double> quansuo_angles={0.782557,-92.0187,150,-245.061,4.25,3.25};
@@ -50,7 +54,7 @@ cobot_control_xbox::cobot_control_xbox()
     cmd_pub = n.advertise<std_msgs::String>("cobot_cmd",1);
     virtual_cobot_pub = n.advertise<sensor_msgs::JointState>("virtual_robot/joint_states",1);
     set_cobot_pub = n.advertise<sensor_msgs::JointState>("set_cobot_joints",1);
-
+    grap_control_pub = n.advertise<std_msgs::Bool>("grap_control",1);
     joy_sub = n.subscribe<sensor_msgs::Joy>("joy",1,&cobot_control_xbox::joy_callbk,this);
 
 
@@ -67,7 +71,10 @@ cobot_control_xbox::cobot_control_xbox()
     Y_press = false;
     speed_up = false;
     speed_down = false;
+    LT_press = false;
 
+    grap_control = false;
+    RT_press = false;
 
 }
 
@@ -127,6 +134,14 @@ void cobot_control_xbox::joy_callbk(const sensor_msgs::JoyConstPtr& joy)
             if(abs(joy_ago.buttons[3]<1e-3) && abs(joy->buttons[3]-1)<1e-3)
             {
                 Y_press = true;
+            }
+            if(abs(joy_ago.buttons[9]<1e-3) && abs(joy->buttons[9]-1)<1e-3)
+            {
+                LT_press = true;
+            }
+            if(abs(joy_ago.buttons[10]<1e-3) && abs(joy->buttons[10]-1)<1e-3)
+            {
+                RT_press = true;
             }
         }
 
@@ -225,6 +240,33 @@ void cobot_control_xbox::loop_function()
         virtual_cobot_pub.publish(js);
 
     }
+    if(LT_press)
+    {
+        LT_press = false;
+        std_msgs::Bool bl;
+        bl.data = grap_control;
+        grap_control_pub.publish(bl);
+
+        
+        grap_control=!grap_control;
+
+    }
+    if(RT_press)
+    {   
+        ros::Rate d_5(5);
+        RT_press = false;
+        std_msgs::String st;
+        st.data = "power_on()\n";
+        cmd_pub.publish(st);
+
+        d_5.sleep();
+        
+
+        st.data = "state_on()\n";
+        cmd_pub.publish(st);
+
+    }
+
     }
 
 
