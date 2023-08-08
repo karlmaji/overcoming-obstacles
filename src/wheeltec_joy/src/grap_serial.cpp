@@ -69,7 +69,7 @@ int main(int argc,char **argv)
             
 
             auto rev = ser.read(buffer,14);
-            ROS_INFO("%d",rev);
+            //ROS_INFO("%d",rev);
             for(int i=0;i<14;i++)
             {
             std::cout<< std::hex<< (buffer[i] & 0xff) <<"  ";

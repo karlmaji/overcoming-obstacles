@@ -130,7 +130,41 @@
     </collision>
   </link>
 
+  <link name="${ns}link7">
+    <origin 
+      xyz="0 0 2"
+      rpy="0 0 1.57"/>
 
+    <visual>
+      <geometry>
+        <mesh
+          filename="package://jxz/meshes/base_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://jxz/meshes/base_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="{ns}output_joint6" type="fixed">
+  <parent link = "${ns}link6"/>
+  <child  link = "${ns}link7"/>
+  <axis xyz= "0 0 0"/>
+  <origin 
+    xyz="-0.025 0.09 -0.02"
+    rpy="0 -1.57 0"/>
+  </joint>
 
     <joint name="${ns}joint2_to_joint1" type="revolute">
     <axis xyz="0 0 1"/>
