@@ -1,0 +1,56 @@
+
+<launch>
+  <!-- <group ns="camera1"> 
+    <arg name="image_view" default="true"/>
+    <node name="usb_cam1" pkg="usb_cam" type="usb_cam_node" output="screen" >
+        <rosparam command="load" file="$(find usb_cam)/config/usb_cam1.yml"/>
+    </node>
+    <node if="$(arg image_view)" name="image_view" pkg="image_view" type="image_view"
+        respawn="false" output="screen">
+        <remap from="image" to="/camera1/usb_cam1/image_raw"/>
+        <param name="autosize" value="true"/>
+    </node>
+
+  </group> -->
+
+
+
+
+<arg name="group0_ns" value ="camera0"/>
+<arg name="group1_ns" value ="camera1"/>
+<arg name="image_view" default="true"/>
+
+
+  <group ns="$(arg group1_ns)"> 
+    
+    <node pkg="nodelet" type="nodelet" name="$(arg group1_ns)_manager"  args="manager"/>
+    <node name="usb_cam1" pkg="usb_cam" type="usb_cam_node" output="screen" >
+        <rosparam command="load" file="$(find usb_cam)/config/usb_cam1.yml"/>
+    </node>
+
+
+    <!-- 生成一个 image_proc/rectify nodelet 来校正 深度图像 -->
+    <node pkg="nodelet" type="nodelet" name="$(arg group1_ns)_rectify"
+          args="load image_proc/rectify $(arg group1_ns)_manager --no-bond"
+          respawn="true">
+      <!-- image_mono：未矫正的的图像输入端口  image_rect：经过校正后的图像输出端口  -->
+      <!-- depth/image_raw：未矫正的的图像的相机端输出端口  depth/image_rect：经过校正后的图像输出端口  -->
+      <remap from="image_mono"  to="usb_cam1/image_raw" />
+      <remap from="camera_info"  to="usb_cam1/camera_info" />
+      <param name="interpolation"  value="1" />
+      <remap from="image_rect"  to="image_rect" />
+    </node>
+
+
+    <node if="$(arg image_view)" name="$(arg group1_ns)_image_view" pkg="image_view" type="image_view"
+        respawn="false" output="screen">
+      <remap from="image" to="image_rect"/>
+      <param name="autosize" value="true"/>
+    </node>
+  </group>
+
+
+
+
+</launch>
+
