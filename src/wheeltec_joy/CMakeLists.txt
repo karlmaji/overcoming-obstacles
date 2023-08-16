@@ -122,9 +122,9 @@ include_directories(
 # include
   ${catkin_INCLUDE_DIRS}
 )
-add_executable( joycontrol src/control.cpp)
-add_dependencies( joycontrol  ${${PROJECT_NAME}_EXPORTED_TARGETS}${catkin_EXPORTED_TARGETS})
-target_link_libraries(joycontrol ${catkin_LIBRARIES})
+add_executable( cmdvel_control src/cmdvel_control.cpp)
+add_dependencies( cmdvel_control  ${${PROJECT_NAME}_EXPORTED_TARGETS}${catkin_EXPORTED_TARGETS})
+target_link_libraries(cmdvel_control ${catkin_LIBRARIES})
 
 add_executable( ptz_control_xbox src/ptz_control_xbox.cpp)
 add_dependencies( ptz_control_xbox  ${${PROJECT_NAME}_EXPORTED_TARGETS}${catkin_EXPORTED_TARGETS})

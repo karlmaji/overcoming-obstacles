@@ -1,0 +1,16 @@
+<launch>
+   <!-- 被控端启动节点 -->
+
+   <!--机械臂TCP通信 -->
+   <node pkg="mycobot_600" type="cobot_tcp.py" name="cobot_tcp" output="screen">
+   <param name="ip"     value="192.168.0.100" />
+   </node>
+
+   <!--机械爪串口通信 -->
+   <node pkg="wheeltec_joy" type="grap_serial" name="grap_serial" output="screen"/>
+
+   <!--云台串口通信 -->
+   <node pkg="ptz_serial" type="ptz_serial" name="ptz_serial" output="screen"/>
+
+
+</launch>
