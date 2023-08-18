@@ -7,8 +7,8 @@
     <!-- 打开手柄控制节点-->
     <node pkg="wheeltec_joy" type="cmdvel_control" name="cmdvel_control" output="screen">
        <remap from="cmd_vel" to="$(arg control_topic)"/>
-       <param name="vlinear_x_max"   type="double"      value="5" />
-       <param name="vlinear_z_max"  type="double"      value="3"/>
+       <param name="vlinear_x_max"   type="double"      value="500" />
+       <param name="vlinear_z_max"  type="double"      value="300"/>
        <param name="loop_rate"       type="int"   value="10" />
     </node> 
 
