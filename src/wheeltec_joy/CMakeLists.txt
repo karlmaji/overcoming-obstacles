@@ -126,6 +126,11 @@ add_executable( cmdvel_control src/cmdvel_control.cpp)
 add_dependencies( cmdvel_control  ${${PROJECT_NAME}_EXPORTED_TARGETS}${catkin_EXPORTED_TARGETS})
 target_link_libraries(cmdvel_control ${catkin_LIBRARIES})
 
+
+add_executable( cmdvel_serial src/cmdvel_serial.cpp)
+add_dependencies( cmdvel_serial  ${${PROJECT_NAME}_EXPORTED_TARGETS}${catkin_EXPORTED_TARGETS})
+target_link_libraries(cmdvel_serial ${catkin_LIBRARIES})
+
 add_executable( ptz_control_xbox src/ptz_control_xbox.cpp)
 add_dependencies( ptz_control_xbox  ${${PROJECT_NAME}_EXPORTED_TARGETS}${catkin_EXPORTED_TARGETS})
 target_link_libraries(ptz_control_xbox ${catkin_LIBRARIES})

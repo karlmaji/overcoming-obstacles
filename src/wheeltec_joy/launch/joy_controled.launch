@@ -12,5 +12,8 @@
    <!--云台串口通信 -->
    <node pkg="ptz_serial" type="ptz_serial" name="ptz_serial" output="screen"/>
 
+   <!--云台串口通信 -->
+   <node pkg="wheeltec_joy" type="cmdvel_serial" name="cmdvel_serial" output="screen"/>
+
 
 </launch>
