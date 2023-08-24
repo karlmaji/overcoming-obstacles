@@ -58,7 +58,7 @@ int main(int argc,char **argv)
     {
         uint8_t data_[14]={0xFF,0xFE,0xFD,0xFC,0x01,0x08,0x02,0x01,0x00,0x00,0x00,0x00,0x00,0xFB};
         ser.write(data_,14);
-        while(1)
+        while(ros::ok())
         {
             loop_rate.sleep();
             data_[7]=0x00;

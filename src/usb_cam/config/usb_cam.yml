@@ -27,7 +27,7 @@ full_ffmpeg_log: false              # Allows to suppress warning messages genera
 camera_name: head_camera            # ROS internal name for the camera, used to generate camera_info message
 camera_frame_id: head_camera        # Frame ID used to generate coordinate transformations
 camera_transport_suffix: image_raw  # Suffix used by image_transport to generate topic names
-camera_info_url: "package://usb_cam/config/head_camera0.yaml"                 # URI for camera calibration data (likely a YML file obtained from camera_calibration)
+camera_info_url: "package://usb_cam/config/head_camera0_2.yaml"                 # URI for camera calibration data (likely a YML file obtained from camera_calibration)
 #camera_info_url: ""
 image_width: 640                    # Frame dimensions, should be supported by camera hardware
 image_height: 480
@@ -65,3 +65,24 @@ intrinsic_controls:
                                     # generated, but the values WILL NOT BE USED to set up the camera. To affect these controls
                                     # once you want to do that, their names should me REMOVED from this list!
 
+# 用户控制
+# 亮度 0x00980900（int）：最小值=-64 最大值=64 步长=1 默认=0 值=0
+# 对比度 0x00980901（int）：最小值=0 最大值=64 步长=1 默认=32 值=32
+# 饱和度0x00980902（int）：最小值= 0 最大值= 128 步长= 1 默认= 64 值= 64
+# 色调 0x00980903（int）：最小值=-40 最大值=40 步长=1 默认=0 值=0
+# white_balance_automatic 0x0098090c（布尔）：默认=1值=1
+# 伽玛 0x00980910 (int) : 最小值=72 最大值=500 步长=1 默认=100 值=100
+# 增益 0x00980913 (int) : 最小值=0 最大值=100 步长=1 默认=0 值=0
+# power_line_freq 0x00980918（菜单）：最小值=0 最大值=2 默认=1 值=1
+# 0：禁用
+# 1：50赫兹
+# 2：60赫兹
+# 白平衡温度 0x0098091a（整数）：最小值=2800 最大值=6500 步骤=1 默认=4600 值=4600 标志=非活动
+# 锐度 0x0098091b（int）：最小值=0 最大值=6 步长=1 默认=2 值=2
+# 背光补偿 0x0098091c (int) : 最小值=0 最大值=2 步长=1 默认=1 值=1
+# 相机控制
+# 自动曝光 0x009a0901（菜单）：最小值=0 最大值=3 默认=3 值=3
+# 1：手动模式
+# 3：光圈优先模式
+# Exposure_time_absolute 0x009a0902（int）：最小值=1 最大值=5000 步骤=1 默认=157 值=157 标志=非活动
+# Exposure_dynamic_framerate 0x009a0903（布尔）：默认=0值=0
