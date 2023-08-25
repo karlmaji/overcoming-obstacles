@@ -27,7 +27,7 @@ full_ffmpeg_log: false              # Allows to suppress warning messages genera
 camera_name: head_camera1            # ROS internal name for the camera, used to generate camera_info message
 camera_frame_id: head_camera1        # Frame ID used to generate coordinate transformations
 camera_transport_suffix: image_raw  # Suffix used by image_transport to generate topic names
-camera_info_url: "package://usb_cam/config/head_camera1.yaml"                 # URI for camera calibration data (likely a YML file obtained from camera_calibration)
+camera_info_url: "package://usb_cam/config/head_camera1_2.yaml"                 # URI for camera calibration data (likely a YML file obtained from camera_calibration)
 image_width: 640                    # Frame dimensions, should be supported by camera hardware
 image_height: 480
 framerate: 30                       # Camera polling frequency, Hz (integer)
